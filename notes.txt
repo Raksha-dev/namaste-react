@@ -1,0 +1,37 @@
+Epi 2 =>
+
+1. NPM is a package manager but not stands as node package manager
+2. It has all the packages hoisted to use.
+3. package.json is a configuration for NPM
+
+* Webpack, parcel, beet are bundles which bundles/packages and minifies the code for production
+* there are 2 types of dependencies one is dev dependency(-D) and the other one is normal which uses in production. 
+
+* ^ carel icon in json files(ex "^2.8.0") means if any minor version update happend then the version in file also will be updated 
+* ~ tilde icon in json files(ex "^2.8.0") means if any major version update happend then the version in file also will be updated automatically but this is not much suitable because it ca break thing
+* package-lock-json is very important file, for example if in some case package.json's version got updated, so lock file keeps a track of it original versions. it keeps exact version of all the dependencies
+
+* node modules - it contains all the dependencies called transative dependency. for example parcel install so parcel also will have dependencies. thats why node modules folder is heavy
+
+* If we have package.json and package-lock-json file then node_module can be regenerated, and no need to push node_module in remote because it is heavy too and no use of it there.
+
+* NPM command is for installing something, for example, npm install you r installing a package. and with npx means u r executing that package.
+* cdn links are not good way to import react in the app as version can be changed, and we will have to do network call everytime,
+* type="module"
+* npx parcel build index.html for prod build
+
+* #parcel
+- it creates dev build
+- local setup
+- HMR - hot module replacement, it reads file
+- it uses file watching algorithem
+- it gives faster developemet and builds experience by caching
+- image optimization
+- it does minification, compression, for prod build
+- consistent hashing
+- code splitting
+- differential bundling
+
+read about parcel.org
+
+
