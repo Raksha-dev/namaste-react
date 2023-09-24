@@ -35,3 +35,21 @@ Epi 2 =>
 read about parcel.org
 
 
+Episode - 3
+
+* npm run start/npm start is a same thing as behind the scene it executes npx parcel index.html command
+* JSX is not an html or javascript it singly JSX which can be say a look-alike html
+* JSX code does not directly understand by JS engine or browser. 1st it is complied by Parcel (parcel will take help of library called Babel) babel will transpile/converts code into the form which js engine or browser understands.
+* read about babel documentation
+* JSX (transpiled before it reaches the JS) - PARCEL - Babel
+* JSX => Babel transpiles it to React.createElement => React.createElement-JS Object =>HTMLElement(render)
+* Ascembeling two or more components together called components composition
+
+Episode 4 
+
+* passing a prop to a function is same as passing argument to the function
+* when u have to dynamically passin the data to the component, u passin as a prop
+* config driven UI, - our website is driven by website, or data, for example different cities shows differet datas(system design interview ques)
+* what is optional chaining?
+
+
