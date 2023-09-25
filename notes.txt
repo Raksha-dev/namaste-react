@@ -52,4 +52,33 @@ Episode 4
 * config driven UI, - our website is driven by website, or data, for example different cities shows differet datas(system design interview ques)
 * what is optional chaining?
 
+Episode 5-
 
+* if u have single const to export then you can use, export default <name of the component> but if u have many const to export then in this case we need to use named export for example
+export const abc = 'some url';
+export const abc = 'some url';
+Named export need to be imported under {} but in case of default export it can be imported normally
+
+two types of export imports
+ export deafult Component;
+ import Component from "path";
+
+ export const Component;
+ import {Component} from "path";
+
+ * why react is fast? - because it easily do dom maniplulation, effeciet dom maniplulation
+
+ React Hooks-
+ * react hook eod is js normal utility function, that function comes with may superpowers, logics
+
+ * React used Reconciliation algorithem (also known as React fiber)
+* virtual dom is representation of actual dom
+
+
+actual dom
+<div>
+<img /> 
+</div>
+
+
+react element are virtual dom
