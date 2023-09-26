@@ -82,3 +82,49 @@ actual dom
 
 
 react element are virtual dom
+
+
+Episode - 6
+
+What is Monolithic and microServices
+
+Monolithic is maintaining every services in one project like, BE FE UI Authentications, APIs. and many more, so when some change happens,
+will have to deploy everything.
+
+MicroServices - microServices are a individual services for each things, like BE FE or API, and it maintains a different structure, for each thing will
+have separate project and this is knowns as separation of concerns and single responsibility project where everyone has their on JOb
+
+MicroServices will have different ports, and it will make a call/redirects when needed
+
+* There are two ways to render the data on the page.
+1. page Loads -->  API call --> page render
+                      |
+                      ^
+                   500ms wait to make a api call for example
+In this approach, as soon as the page loads it will make an API call (which can may be take 5ms) to render the data, and till that time page might be blank.
+
+2. page Loads --> render(may be skeleton or whatever we have) ---> API call --> page render
+In this approach as soon as the page loads, we will render the skeleton or whatever we have on the page and meanwhile API call happens we will re-render the page with correct data.
+this gives u good UX
+
+* useState -  to manage state variables
+* useEffect - which takes 2 arguments, 1st one is callback function and another one is dependency.
+- so when will callback function will be called?
+ ans - so once ur component renders and rendering cycle has been finished, after this callback function will be called
+
+* CORS -  cors policy is blocker given by chrome, if we try to access api in local and which is not allowed so chrome will give us CORS policy error.
+* Read about CORS and optional chaining?
+
+* useState - useState takes 2 parameter one is local state variable and another one will be to update the local variable. as soon as it recieves a update
+it quickly refreshes/re-renders that component
+
+* Whenever state variable update, react triggers a Reconciliation(re-renders the component)
+
+* what is CORS -  so before when some web app was trying to fetch/get access to the data from another web app, so it was not allowed, then CORS mechanism came into the play.
+
+-so web app A will 1st make a preflight optional call to B, if b verifies that preflight call so it will send additional http headers to A, which will client client knows ok this is safe and then actuall call will be made
+- additional headers -  accept-control-allow-origin
+
+* optional chaining - operator ? it allowes u to access the element of an oject or element of an array without giving u the error even if does not exits
+it will give u undefined
+
