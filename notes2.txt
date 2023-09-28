@@ -1,0 +1,26 @@
+Episode - 7--
+
+* useEffect=
+- useEffect(); is a function which takes 2 parameter, one is call back function and the another one is dependency array.
+useEffect(() => {})
+- if useEffect is empty(without any dependency[]) then it will called everytime after the component is rendered
+- if empty dependency [] is there then the useEffect only will be called on intial(only once)
+- if there is some dependency then once that dependency changes then only the useEffect will be rendered.
+
+
+* Router-
+
+- To create browser Router we have to import an configuration from react router dom, which is createBrowserRouter, and it takes a configuration, as an array of object
+- To render this configuration, will require one more component called RouterProvider
+
+useErrorRouter - this hook is used to check if error is api/network or types of errors/
+
+* If header and footer need to be there and with only children the page will change so we have to send all the child pages as children, and using Outlet component
+it will get all the configuration and render it on the page.
+
+* There is 2 types of routing
+
+- Server side routing - when we can get an .html page or make network call, so page refreshes, that is called Server side routing.
+- Client side routing - In this case component are loaded already on the page, and it does not refreshes the page.
+
+* if we want to send the path as dynamic routing, then path will come : (path: "/restaurant/:id")
