@@ -1,9 +1,11 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useStatusCheck from "../utils/useStatusCheck";
 
 const Header = () => {
   const [login, setLogin] = useState("Log In");
+  const checkStatus = useStatusCheck();
 
   return (
     <div>
@@ -13,13 +15,22 @@ const Header = () => {
         </Link>
         <ul className="nav-items">
           <li>
-            <Link to={"/offers"} className="link">Offers</Link>
+            <Link to={"/offers"} className="link">
+              Offers
+            </Link>
           </li>
           <li>
-            <Link to={"/help"} className="link">Help</Link>
+            <Link to={"/help"} className="link">
+              Help
+            </Link>
           </li>
           <li>Account info</li>
           <li>Cart</li>
+          <li>
+            <Link to={"/grocery"} className="link">
+              Grocery
+            </Link>
+          </li>
           <button
             className="login"
             onClick={() => {
@@ -28,6 +39,7 @@ const Header = () => {
           >
             {login}
           </button>
+          <li>Status: {checkStatus ? "💚" : "🧡"}</li>
         </ul>
       </div>
     </div>

@@ -91,5 +91,18 @@ mean the component will be disappeared from the page
 
 
 
+Episode 9--
+
+* Single responsibility principle - as per this your code should be maintainable, testable, scalabble.
+* to optimize code, we should make small chunks of code, we should make different bundles for different entity.
+ - code spiliting
+ - chunking
+ - dynamic bundling
+ - lazy loading
+
+Episode 10-
+
+
+
    
   

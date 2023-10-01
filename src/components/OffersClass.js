@@ -1,5 +1,4 @@
 import React from "react";
-import { json } from "react-router-dom";
 
 class OffersClass extends React.Component {
   constructor(props) {

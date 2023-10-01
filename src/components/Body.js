@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useStatusCheck from "../utils/useStatusCheck";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -11,6 +12,8 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const checkStatus = useStatusCheck();
 
   const fetchData = async () => {
     const data = await fetch(
@@ -23,8 +26,10 @@ const Body = () => {
     setFilterdRestaurant(
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    console.log(json);
   };
+
+  if (checkStatus === false)
+    return <h1>Please check your internet connection 🥪</h1>;
 
   // conditional rendering
   return listOfRestaurant.length === 0 ? (
