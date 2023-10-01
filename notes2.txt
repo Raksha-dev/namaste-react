@@ -24,3 +24,72 @@ it will get all the configuration and render it on the page.
 - Client side routing - In this case component are loaded already on the page, and it does not refreshes the page.
 
 * if we want to send the path as dynamic routing, then path will come : (path: "/restaurant/:id")
+
+Episode 8 -
+
+# Class based component is normal javascript classes, class based component will have its component name which will extend React.Component which will come from react library.
+  Also, it will have its render method which will return some code of JSX.
+
+* To write the stats in clas based component we need to write it under constructor object, use this.state object
+constructor(props) {
+  super(props);
+  this.state = {
+    count: 0,
+    count: 1
+  }
+}
+
+- to update the state we need to directly use the this.setState object. and under that we update the state
+
+this.setState({
+  count: this.state.count + 1
+})
+
+
+Render life cycle---
+
+- When renderering of component start, instance of that class is created/component will be loaded on that page. and once instance of that class is created
+constructor will be called. and then render method will be called.
+
+- When the component will be rendered, then the componentDidMount life cycle will be done. if it has some child component, then child componentDidMounting will be done and then parent did mount will done.
+ componentDidMount() {
+   console.log("parent did mount")
+ }
+
+componentDidMount one of the use case is to make API calls. why because it if we wait to render the data then it wont give u good uX,
+Once render method is done, then we can make an api call using componentDidMount
+.....
+
+
+Mounting phase -
+
+It will have 2 phases one is render and another one is commit.
+
+Render- In render phase, constructor will be called, then render will be called
+commit - then it will batch the things for dom menipulation and component did mount will be rendered.
+
+----
+
+----Mounting----
+
+constructor(dummy)
+Render(dummy)
+  dummy html will be printed
+  componentDidMount is done  
+     <API call> will happen</API>
+     <this.setState> is done - state variable is updated
+
+----update cycle--
+  render will happen again with the new API data
+  HTML is loaded with new api data
+
+  componentDidUpdate is done
+
+  ----Unmounting----
+
+mean the component will be disappeared from the page
+
+
+
+   
+  
