@@ -100,9 +100,23 @@ Episode 9--
  - dynamic bundling
  - lazy loading
 
+
+* we can import components using lazy to create different bundles for that perticular component
+
 Episode 10-
 
+there are many ways of writing css -  need to go to documenation and read
+- styled component
+- scss
+- sass
+- material ui
+- bootstrap
+- chakra ui
+- ant design
 
+---Tailwind css----
 
-   
+* while importing Tailwind configuration, we need to check, which bundle we are using as per the bundle we need to configure
+* Tailwind itself gives u css class which u can use it
+
   

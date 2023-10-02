@@ -9,37 +9,36 @@ const Header = () => {
 
   return (
     <div>
-      <div className="header">
+      <div className="flex justify-between items-center bg-slate-100 shadow-md px-20">
         <Link to={"/"}>
-          <img className="logo" src={LOGO_URL} alt="logo"></img>
+          <img className="w-20" src={LOGO_URL} alt="logo"></img>
         </Link>
-        <ul className="nav-items">
-          <li>
+        <ul className="flex">
+          <li className="mr-2">Status: {checkStatus ? "💚" : "🧡"}</li>
+          <li className="mr-2">
             <Link to={"/offers"} className="link">
               Offers
             </Link>
           </li>
-          <li>
+          <li className="mr-2">
             <Link to={"/help"} className="link">
               Help
             </Link>
           </li>
-          <li>Account info</li>
-          <li>Cart</li>
-          <li>
+          <li className="mr-2">Account info</li>
+          <li className="mr-2">Cart</li>
+          <li className="mr-2">
             <Link to={"/grocery"} className="link">
               Grocery
             </Link>
           </li>
           <button
-            className="login"
             onClick={() => {
               login === "Log In" ? setLogin("Log Out") : setLogin("Log In");
             }}
           >
             {login}
           </button>
-          <li>Status: {checkStatus ? "💚" : "🧡"}</li>
         </ul>
       </div>
     </div>

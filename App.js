@@ -11,7 +11,7 @@ import Restaurant from "./src/components/Restaurant";
 const Grocery = lazy(() => import("./src/components/Grocery"));
 
 const NamasteFood = () => (
-  <div className="food-container">
+  <div className="max-w-screen-xl m-0">
     <Header />
     <Outlet />
   </div>

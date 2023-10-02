@@ -32,16 +32,16 @@ const Body = () => {
     return <h1>Please check your internet connection 🥪</h1>;
 
   // conditional rendering
-  return listOfRestaurant.length === 0 ? (
+  return listOfRestaurant === 0 ? (
     <Shimmer />
   ) : (
     <div>
-      <div className="res-btn-section">
-        <div className="search-filter">
-          <h2 className="res-heading">Top restaurant chains in Bangalore</h2>
+      <div className="flex justify-between my-4 px-20">
+        <div className="flex items-center">
+          <h2 className="font-medium text-3xl">Top restaurant chains in Bangalore</h2>
           <div>
             <input
-              className="input"
+              className="border-solid border-2 rounded-md border-gray-500 ml-4"
               type={"text"}
               value={searchText}
               onChange={(e) => {
@@ -49,7 +49,7 @@ const Body = () => {
               }}
             />
             <button
-              className="search"
+              className="bg-slate-400 ml-2 p-1 rounded-md text-gray-50"
               onClick={() => {
                 const filteredSearch = listOfRestaurant.filter((res) =>
                   res.info.name.toLowerCase().includes(searchText)
@@ -62,7 +62,7 @@ const Body = () => {
           </div>
         </div>
         <button
-          className="res-filter-btn"
+          className="bg-slate-400 ml-2 p-2 rounded-md text-gray-50"
           onClick={() => {
             const filteredItems = listOfRestaurant.filter(
               (res) => res.info.avgRating > 4
@@ -74,13 +74,14 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-cards">
+      <div className="px-20 grid grid-cols-4 gap-5">
         {filterdRestaurant.length < 1 ? (
           <h1>No results</h1>
         ) : (
           <>
             {filterdRestaurant.map((restaurant, i) => (
               <Link
+              className="bg-slate-400"
                 to={"/restaurant/" + restaurant.info.id}
                 key={restaurant.info.id}
               >
