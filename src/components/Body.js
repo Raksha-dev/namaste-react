@@ -1,19 +1,22 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import RestaurantCard, { HighRatedRestaurant } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useStatusCheck from "../utils/useStatusCheck";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filterdRestaurant, setFilterdRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const { setUserName, loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const checkStatus = useStatusCheck();
+  const HighRatedRestaurants = HighRatedRestaurant(RestaurantCard);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -38,7 +41,9 @@ const Body = () => {
     <div>
       <div className="flex justify-between my-4 px-20">
         <div className="flex items-center">
-          <h2 className="font-medium text-3xl">Top restaurant chains in Bangalore</h2>
+          <h2 className="font-medium text-3xl">
+            Top restaurant chains in Bangalore
+          </h2>
           <div>
             <input
               className="border-solid border-2 rounded-md border-gray-500 ml-4"
@@ -49,7 +54,7 @@ const Body = () => {
               }}
             />
             <button
-              className="bg-slate-400 ml-2 p-1 rounded-md text-gray-50"
+              className="bg-slate-400 ml-2 p-1 rounded-md text-gray-50 mr-4"
               onClick={() => {
                 const filteredSearch = listOfRestaurant.filter((res) =>
                   res.info.name.toLowerCase().includes(searchText)
@@ -60,6 +65,14 @@ const Body = () => {
               Search
             </button>
           </div>
+          <label>
+            UserName:
+            <input
+              className="border border-black px-2"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </label>
         </div>
         <button
           className="bg-slate-400 ml-2 p-2 rounded-md text-gray-50"
@@ -67,8 +80,7 @@ const Body = () => {
             const filteredItems = listOfRestaurant.filter(
               (res) => res.info.avgRating > 4
             );
-            setListOfRestaurant(filteredItems);
-            console.log(filteredItems);
+            setFilterdRestaurant(filteredItems);
           }}
         >
           Top Rated Restaurants
@@ -81,11 +93,15 @@ const Body = () => {
           <>
             {filterdRestaurant.map((restaurant, i) => (
               <Link
-              className="bg-slate-400"
+                className="bg-slate-400 relative"
                 to={"/restaurant/" + restaurant.info.id}
                 key={restaurant.info.id}
               >
-                <RestaurantCard resData={restaurant} />
+                {restaurant.info.avgRating > 4 ? (
+                  <HighRatedRestaurants resData={restaurant} />
+                ) : (
+                  <RestaurantCard resData={restaurant} />
+                )}
               </Link>
             ))}
           </>

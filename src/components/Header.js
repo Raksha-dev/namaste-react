@@ -1,11 +1,13 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useStatusCheck from "../utils/useStatusCheck";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [login, setLogin] = useState("Log In");
   const checkStatus = useStatusCheck();
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div>
@@ -32,13 +34,14 @@ const Header = () => {
               Grocery
             </Link>
           </li>
-          <button
+          <button className="mr-2"
             onClick={() => {
               login === "Log In" ? setLogin("Log Out") : setLogin("Log In");
             }}
           >
             {login}
           </button>
+          <li>{loggedInUser}</li>
         </ul>
       </div>
     </div>

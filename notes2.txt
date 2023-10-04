@@ -119,4 +119,32 @@ there are many ways of writing css -  need to go to documenation and read
 * while importing Tailwind configuration, we need to check, which bundle we are using as per the bundle we need to configure
 * Tailwind itself gives u css class which u can use it
 
+Episode 11 -
+
+* Higher order function - Higher order function take a component inside, and returns a components.
+basically, it takes a component, enhances it and returns a enhanced component.
+
+export const Component = () => {
+  return () => {
+    return (
+      <div>
+      </div>
+    )
+  }
+}
+
+** React developer tool is new super power to developer tool for deugging easily.
+
+* Controlled and Uncontrolled component ? - Controlled component will have power to itself, but Uncontrolled component will be handled by its parent/other component.
+ 
+* Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props.
+   This is known as lifting state up, and it’s one of the most common things you will do writing React code.
+
+* Prop Drilling - passing props from parent to leaf/children nodes, 
+
+* what if we have many nested children, in that case we have to pass nodes to each nseted child, and that is a problem and to solve this new concept came called React context.
+* context solves the problem of prop Drilling.
+* react context - things which needs to be accessed anywhere comes under context, for exmaple login
+
+
   
