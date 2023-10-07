@@ -74,6 +74,29 @@ two types of export imports
  * React used Reconciliation algorithem (also known as React fiber)
 * virtual dom is representation of actual dom
 
+Do you know about React Fiber?
+What makes React so powerful and fast, let's have a concise discussion-
+
+🔹React Fiber is just a powerful re-implementation of React's core algorithm (Reconciliation). React fiber is based upon reconciliation but optimises it further - I'll explain how but first do you know reconciliation?
+
+🔹 In today world of config driven UI, the data changes the UI rapidly which leads to re-rendering multiple times which is a costly operation. Reconciliation uses the concept of virtual DOM, to solve this - Virtual dom is just an object, a tree of nodes describing the app which is stored in memory. When a state change/change in data occurs, a new tree is created.
+Then the (Diff algorithm) is triggered, new tree is diffed with the previous tree by this algo and the specific change is updated, not the whole app is re-rendered. This makes React so fast in rendering cycles. Intersting na!!
+
+🔹And the react fiber mainly focus on optimising the scheduling of (work)-
+Work - Computations to be performed due to state change.
+In a UI, it's not necessary for every update to be applied immediately; in fact, doing so can be wasteful, causing frames to drop and degrading the user experience. So unlike other libraries react used pull based approach and handles the prioritisation of different updated/ scheduling of work by itself leaving the programmer Strees free.
+
+🔹Scheduling optimisation is the key goal -
+
+- pause work and come back to it later.
+
+- assign priority to different types of work.
+
+- reuse previously completed work.
+
+- abort work if it's no longer needed.
+
+
 
 actual dom
 <div>

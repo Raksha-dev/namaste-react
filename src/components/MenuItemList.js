@@ -1,6 +1,11 @@
+import { useDispatch } from "react-redux";
 import { RES_IMAGE_CDN } from "../utils/constants";
+import { addCartItem } from "../utils/redux/cartSlice";
 
 const MenuItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleClick = (item) => dispatch(addCartItem(item));
+
   return (
     <div>
       {items.map((item) => (
@@ -16,10 +21,18 @@ const MenuItemList = ({ items }) => {
                 : item.card?.info.defaultPrice / 100}
             </div>
           </div>
-          <img
-            src={RES_IMAGE_CDN + item.card?.info?.imageId}
-            className="w-[100px] h-[100px]"
-          />
+          <div className="relative">
+            <img
+              src={RES_IMAGE_CDN + item.card?.info?.imageId}
+              className="w-[100px] h-[100px]"
+            />
+            <button
+              className="absolute bottom-0 left-7 bg-black text-white p-1"
+              onClick={() => handleClick(item)}
+            >
+              Add +
+            </button>
+          </div>
         </div>
       ))}
     </div>

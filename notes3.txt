@@ -1,0 +1,53 @@
+Episode 12- redux--
+
+Redux and React are different different libraries. and redux is not mandatory use only when required like application is huge may be.
+Redux primarily used to handle states of the applications, and easy to debug.
+
+What is redux store??
+
+Redux store is a big global object which will be kept at global central place, which can be accessed by any component and can be read and write.
+
+|---------|
+|         |
+|         |
+|         |  Redux store
+|         |
+|         |
+|---------|
+
+But to manage that big data under the global object we have slices, store can have as many slice we want, Redux Slice can be a user slice, cart slice,
+can be theme slice, cart slice can not be directly modified.
+
+Here we are taking an example of cart.
+
+|---------|
+|User slice|
+|---------|
+|  cart   |  Redux store
+|---------|
+|slice    |
+|---------|
+
+Redux slice can not be directly modified, so to modify the slice below things happens.
+
+Once Add button is clicked, so it will not directly modifies the cart, but it will disptach an action, and calls the funtion(), and this function modifies the cart.
+and this function known as Reducer.
+
+** When add Button is clicked, it disptaches an action, which calls Reducer(function), and this Reducer updates the slice of the redux store.
+
+++ Now to read data from an updated cart slice so that cart component will be updated with the items, cart will be subscribe to the store using Selector.
+Selector is known an subscribing to the store
+
+Homework?
+
+onClick={handleClick} - passing a function
+onClick={handleClick(items)} - calling a function rightway
+onClick={() => handleClick(items)} - call back function
+
+
+** do not subscribe to the full store, subscribe only specific part of the store which is needed. this is very efficient.
+** Reducer word will be used only when we are creating store, and Reducers will be used for slices.
+** Vanilla redux(older-redux) was not allowed us to MUTATE the state, in this case create new state and return that new state.
+but with the RTK, u have to modify the state.
+** RTK uses Immer behind the scene
+

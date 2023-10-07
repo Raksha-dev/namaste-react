@@ -3,11 +3,14 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useStatusCheck from "../utils/useStatusCheck";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import Cart from "./Cart";
 
 const Header = () => {
   const [login, setLogin] = useState("Log In");
   const checkStatus = useStatusCheck();
   const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div>
@@ -28,13 +31,18 @@ const Header = () => {
             </Link>
           </li>
           <li className="mr-2">Account info</li>
-          <li className="mr-2">Cart</li>
+          <li className="mr-2">
+            <Link to={"/Cart"} className="link">
+              Cart - {cartItems.length}
+            </Link>
+          </li>
           <li className="mr-2">
             <Link to={"/grocery"} className="link">
               Grocery
             </Link>
           </li>
-          <button className="mr-2"
+          <button
+            className="mr-2"
             onClick={() => {
               login === "Log In" ? setLogin("Log Out") : setLogin("Log In");
             }}
